@@ -1,5 +1,25 @@
-const Storage = function (items) {
-    this.items = items;
+class Storage {
+    constructor(items) {
+        this.items = items;
+    }
+
+    getItems() {
+        console.log(this.items);
+    }
+
+    addItem(item) {
+        if (this.items.includes(item)) return;
+
+        this.items.push(item);
+        return this.items;
+    }
+
+    removeItem(item) {
+        if (this.items.includes(item)) {
+            const index = this.items.findIndex(itemFind => itemFind === item);
+            this.items.splice(index, 1);
+        }
+    }
 }
 
 const storage = new Storage([
@@ -8,25 +28,6 @@ const storage = new Storage([
   'Железные жупи',
   'Антигравитатор',
 ]);
-
-Storage.prototype.getItems = function() {
-    console.log(this.items);
-};
-
-Storage.prototype.addItem = function(item) {
-    this.items.push(item);
-    return this.items;
-};
-
-Storage.prototype.removeItem = function (item) {
-    if (this.items.includes(item)) {
-        const index = this.items.findIndex(itemFind => itemFind === item);
-        this.items.splice(index, 1);
-    };
-};
-
-
-
 
 const items = storage.getItems();
 console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]

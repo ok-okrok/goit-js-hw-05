@@ -1,14 +1,13 @@
-const User = function ({ name, age, follofers }) {
+class User {
+  constructor({ name, age, follofers }) {
     this.name = name;
     this.age = age;
     this.follofers = follofers;
-}
-
-User.prototype.getInfo = function () {
+  }
+  getInfo() {
     console.log(`User ${this.name} is ${this.age} years old and has ${this.follofers} followers`);
+  }
 }
-
-
 
 const mango = new User({
   name: 'Mango',
