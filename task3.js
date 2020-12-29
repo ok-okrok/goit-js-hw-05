@@ -4,21 +4,24 @@ class Storage {
     }
 
     getItems() {
-        console.log(this.items);
+        return this.items;
     }
 
     addItem(item) {
         if (this.items.includes(item)) return;
 
         this.items.push(item);
-        return this.items;
     }
 
     removeItem(item) {
-        if (this.items.includes(item)) {
-            const index = this.items.findIndex(itemFind => itemFind === item);
+        const index = this.items.indexOf(item);
+        if (index !== -1) {
             this.items.splice(index, 1);
         }
+        // if (this.items.includes(item)) {
+        //     const index = this.items.findIndex(itemFind => itemFind === item);
+        //     this.items.splice(index, 1);
+        // }
     }
 }
 
